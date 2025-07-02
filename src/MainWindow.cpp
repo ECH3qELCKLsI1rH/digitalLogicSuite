@@ -7,7 +7,7 @@ MainWindow::MainWindow()
       m_toolbox(Gtk::ORIENTATION_VERTICAL) {
     
     // Set window properties
-    set_title("Digital Logic Suite");
+    set_title("Digital Logic v2");
     set_default_size(1000, 700);
     set_position(Gtk::WIN_POS_CENTER);
     
