@@ -17,10 +17,11 @@
 ## 🛠️ Build & Run
 
 ```bash
-# Install GTKmm
-sudo pacman -S gtkmm3  # Arch
-# or
-sudo apt install libgtkmm-3.0-dev  # Ubuntu
+# Install SFML (Linux)
+sudo apt install libsfml-dev  # Ubuntu/Debian
+sudo pacman -S sfml          # Arch
+
+# Or get SFML from https://www.sfml-dev.org/download.php
 
 # Build and run
 make run
@@ -37,16 +38,29 @@ make run
 5. **Move Components** - Drag to reposition
 6. **Clear All** - Reset circuit
 
-Simple and intuitive!
+Simple and intuitive with smooth SFML rendering!
 
 ---
 
 ## 📁 File Structure
 
 ```
-main.cpp                # Main file
+main.cpp                # Main SFML application
 src/
-└── MainWindow.h/.cpp   # Main window
+├── CircuitSimulator.h/.cpp  # Main simulation logic
+├── GUI.h/.cpp          # SFML GUI elements
+├── Components.h/.cpp   # Logic gate implementations
+└── Wire.h/.cpp         # Wire connection system
 ```
 
 Clean, modular, and maintainable code.
+
+---
+
+## 🖥️ SFML Advantages
+
+- **Hardware-accelerated graphics** for smooth performance
+- **Simple event handling** for user interactions
+- **Cross-platform** support (Windows, Linux, macOS)
+- **Built-in support** for textures, shapes, and text rendering
+- **Lightweight** compared to full GUI toolkits
