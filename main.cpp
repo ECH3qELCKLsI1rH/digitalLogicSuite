@@ -1,42 +1,41 @@
-#include <SFML/Graphics.hpp>
+// #include <SFML/Graphics.hpp>
+#include <iostream>
 
-int main(int argc, char **argv)
-{
-    unsigned int width = 640;
-    unsigned int height = 360;
-    sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode({width, height}), "Test");
-    window->setFramerateLimit(60);
+#include "src/truthTable_with_expression_simplifier.h"
 
-    sf::CircleShape circle(90.0f);
+int main(int argc, char **argv) {
+    TruthTableGenerator ttg;
+    ttg.readExpression();
+    ttg.generateTruthTable();
+    std::cout << "\nSimplified: " << ttg.simplifyExpression() << std::endl;
+    // unsigned int width = 640;
+    // unsigned int height = 360;
+    // sf::RenderWindow window(sf::VideoMode({width, height}), "Test");
+    // window.setFramerateLimit(60);
 
-    circle.setOrigin(circle.getGeometricCenter());
-    circle.setPosition({width / 2.0f, height / 2.0f});
-    circle.setFillColor(sf::Color::Green);
-    circle.setOutlineThickness(3.0f);
-    circle.setOutlineColor(sf::Color::Red);
+    // sf::CircleShape circle(90.0f);
 
-    while (window->isOpen())
-    {
-        while (const std::optional event = window->pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window->close();
-            }
-            else if (const auto *keyPressed = event->getIf<sf::Event::KeyPressed>())
-            {
-                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
-                {
-                    window->close();
-                }
-            }
-        }
-        window->clear(sf::Color::White);
+    // circle.setOrigin(circle.getGeometricCenter());
+    // circle.setPosition({width / 2.0f, height / 2.0f});
+    // circle.setFillColor(sf::Color::Magenta);
+    // circle.setOutlineThickness(3.0f);
+    // circle.setOutlineColor(sf::Color::Red);
 
-        window->draw(circle);
+    // while (window.isOpen()) {
+    //     while (const std::optional event = window.pollEvent()) {
+    //         if (event->is<sf::Event::Closed>()) {
+    //             window.close();
+    //         } else if (const auto *keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+    //             if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
+    //                 window.close();
+    //             }
+    //         }
+    //     }
+    //     window.clear(sf::Color::White);
 
-        window->display();
-    }
-    delete window;
-    return 0;
+    //     window.draw(circle);
+
+    //     window.display();
+    // }
+    // return 0;
 }
